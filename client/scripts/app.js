@@ -20,5 +20,14 @@ app.send = function(messageObject){
 };
 
 app.fetch = function(){
-
+  $.ajax({
+    url: 'https://api.parse.com/1/classes/chatterbox',
+    type: 'GET',
+    data: {order: '-createdAt'},
+    contentType: 'application/json',
+    success: app.createMessages,
+    error: function (data) {
+      console.error('chatterbox: Failed to send message');
+    }
+  });
 };
