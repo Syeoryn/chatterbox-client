@@ -1,7 +1,7 @@
 var app = {};
 
 app.init = function(){
-
+  app.messages = new MessageList();
 };
 
 app.send = function(messageObject){
@@ -31,3 +31,15 @@ app.fetch = function(){
     }
   });
 };
+
+app.createMessages = function(data){
+  console.log('chatterbox: Messages fetched');
+  console.log(data);
+  var messageObjects = data.results;
+  for(var i = 0; i < messageObjects.length; i++){
+    var newMessage = new Message(messageObjects[i]);
+    app.messages.add(newMessage);
+  }
+};
+
+$(function(){app.init()});
