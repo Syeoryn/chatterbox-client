@@ -5,7 +5,7 @@ var Message = Backbone.Model.extend({
       text: messageObject.text,
       roomname: messageObject.roomname,
       time: messageObject.createdAt,
-      cid: messageObject.objectId
+      id: messageObject.objectId
     });
   },
 });

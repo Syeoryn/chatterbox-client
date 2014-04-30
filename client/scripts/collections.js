@@ -1,4 +1,5 @@
 var MessageList = Backbone.Collection.extend({
+  comparator: 'createdAt',
   model: Message
 });
 

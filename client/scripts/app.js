@@ -2,6 +2,8 @@ var app = {};
 
 app.init = function(){
   app.messages = new MessageList();
+  app.messageListView = new MessageListView({collection: app.messages});
+  $('.chatDisplay').append(app.messageListView.render());
 };
 
 app.send = function(messageObject){
@@ -39,6 +41,7 @@ app.createMessages = function(data){
   for(var i = 0; i < messageObjects.length; i++){
     var newMessage = new Message(messageObjects[i]);
     app.messages.add(newMessage);
+    // Could use collection.create?
   }
 };
 
